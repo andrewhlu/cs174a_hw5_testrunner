@@ -34,7 +34,8 @@ RESET_DB_NAME = "reset.db"
 
 def resetDb():
     # Remove old DB file
-    os.remove(Query.DB_NAME)
+    if os.path.isfile(Query.DB_NAME):
+        os.remove(Query.DB_NAME)
 
     # Check if the reset DB file exists
     if os.path.isfile(RESET_DB_NAME):
